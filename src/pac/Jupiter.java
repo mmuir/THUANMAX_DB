@@ -19,71 +19,166 @@ import java.util.logging.Logger;
 import org.sqlite.SQLiteConfig;
 
 /**
- * Class to create the DB schema for the app.
+ * Class to create and manage the DB schema for the app.
+ * 
  * @author Max
  *
  */
 public class Jupiter {
 	
+	/**
+	 * Bean to represent a row in the USER_MOVIE_LIKE table.
+	 * 
+	 * @author Max
+	 *
+	 */
 	public static class UserMovieBean {
 		
+		/**
+		 * Primary key of the USER_MOVIE_LIKE table.
+		 */
 		private int movieLikeId;
 		
+		/**
+		 * Foreign key in the USER_MOVIE_LIKE table {primary in the USER_INFO table).
+		 */
 		private int userId;
 		
+		/**
+		 * The name of the movie the user likes.
+		 */
 		private String movieName;
 		
+		/**
+		 * An actor in the movie.
+		 */
 		private String actorName;
 		
+		/**
+		 * Date this record was created.
+		 */
 		private Date createDate;
 		
+		/**
+		 * Date this record was last edited.
+		 */
 		private Date editDate;
 
+		/**
+		 * Accessor method to return the Movie Like Id 
+		 * (primary key of the USER_INFO table).
+		 * 
+		 * @return   The Movie Like Id.
+		 */
 		public int getMovieLikeId() {
 			return movieLikeId;
 		}
 
+		/**
+		 * Mutator method to initialize the Movie Like Id 
+		 * (primary key of the USER_INFO table).
+		 * 
+		 * @param movieLikeId
+		 *            The Movie Like Id.
+		 */
 		public void setMovieLikeId(int movieLikeId) {
 			this.movieLikeId = movieLikeId;
 		}
 
+		/**
+		 * Accessor method to return the User Id foreign key
+		 * (primary key of the USER INFO table).
+		 * 
+		 * @return The User Id.
+		 */
 		public int getUserId() {
 			return userId;
 		}
 
+		/**
+		 * Mutator method to initialize the User Id foreign key
+		 * (primary key of the USER INFO table).
+		 * 
+		 * @param userId
+		 *            The User Id.
+		 */
 		public void setUserId(int userId) {
 			this.userId = userId;
 		}
 
+		/**
+		 * Accessor method to return the Name of the Movie that the User likes.
+		 * 
+		 * @return   The Name of the Movie the User likes.
+		 */
 		public String getMovieName() {
 			return movieName;
 		}
 
+		/**
+		 * Mutator method to initialize the name of the movie the User likes.
+		 * 
+		 * @param movieName
+		 *            The Name of the Movie the User likes.
+		 */
 		public void setMovieName(String movieName) {
 			this.movieName = movieName;
 		}
 
+		/**
+		 * Accessor method to return the Name of the actor that the User likes.
+		 * 
+		 * @return   The Name of the actor the User likes.
+		 */
 		public String getActorName() {
 			return actorName;
 		}
 
+		/**
+		 * Mutator method to initialize the name of the actor the User likes.
+		 * 
+		 * @param actorName
+		 *            The name of the actor the User likes.
+		 */
 		public void setActorName(String actorName) {
 			this.actorName = actorName;
 		}
 
+		/**
+		 * Accessor method to return the date this record was created.
+		 * 
+		 * @return  The record creation date.
+		 */
 		public Date getCreateDate() {
 			return createDate;
 		}
 
-		public void setCreateDate(Date createDate) {
-			this.createDate = createDate;
-		}
-
+		/**
+		 * Accessor method to return the date this record was last edited.
+		 * 
+		 * @return  The record edit date.
+		 */
 		public Date getEditDate() {
 			return editDate;
 		}
 
-		public void setEditDate(Date editDate) {
+		/**
+		 * Mutator method to set the creation date of this record.
+		 * 
+		 * @param createDate
+		 *            The creation date of this record.
+		 */
+		private void setCreateDate(Date createDate) {
+			this.createDate = createDate;
+		}
+		
+		/**
+		 * Mutator method to set the edit date of this record.
+		 * 
+		 * @param editDate
+		 *            The edit date of this record.
+		 */
+		private void setEditDate(Date editDate) {
 			this.editDate = editDate;
 		}
 	}
